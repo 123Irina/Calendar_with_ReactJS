@@ -1,0 +1,227 @@
+@import "mixin";
+@import "normalize";
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.allContainer {
+  background-color: #eef3ea;
+  padding: 20px;
+}
+p, h1 {
+  margin: 0;
+}
+.AllCalenar {
+  background-color: white;
+  width: 80%;
+  padding: 10px;
+  margin: 0 auto;
+}
+button, input {
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+button, .td {
+  cursor: pointer;
+}
+.calendarDay {
+  padding: 5px;
+}
+.today {
+  background-color: #f5f5f5;
+  .calendarDay {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #039be5;
+    color: white;
+  }
+}
+.calendarHead {
+  padding-right: 25px;
+  h1 {
+    margin-bottom: 15px;
+  }
+  .today {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .inline-block {
+    display: inline-block;
+    margin-right: 10px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    span.month {
+      text-transform: capitalize;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 25px;
+    }
+   }
+  .searchBlock {
+    display: inline-block;
+    float: right;
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    button {
+      height: 30px;
+      border: none;
+      background-color: transparent;
+    }
+    input {
+      line-height: 26px;
+      box-shadow: inset 0.2em 0.2em #e0e0e0;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 12px;
+      min-width: 160px;
+    }
+  }
+}
+.weekDay {
+  border-left: 5px solid #e0e0e0;
+  div {
+    height: auto;
+    border-bottom: none;
+    display: inline-block;
+    width: 14%;
+    border-right: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+    padding: 5px 5px 0;
+  }
+}
+.calendarBody {
+  font-size: 0;
+  border-bottom: none;
+  border-left: 5px solid #e0e0e0;
+  .td {
+    width: 14%;
+    height: 20vh;
+    display: inline-block;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    font-size: 14px;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 5px;
+    .planHeader {
+      margin-top: 5px;
+      .allDayPlan {
+        background-color: #039be5;
+        color: white;
+        white-space: nowrap;
+        line-height: 20px;
+        padding-left: 10px;
+      }
+      .timeDayPlan {
+        padding-top: 5px;
+        padding-left: 5px;
+        span {
+          line-height: 18px;
+          white-space: nowrap;
+          &:before {
+            display: inline-block;
+            content: "";
+            width: 5px;
+            height: 5px;
+            margin-right: 5px;
+            background-color: #039be5;
+            border: 1px solid #039be5;
+          }
+        }
+       }
+    }
+  }
+  [data-month="next"], [data-month="before"] {
+     color: lightgrey;
+  }
+}
+
+/*Modals*/
+
+.hidden {
+  display: none;
+}
+.modalBackground {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(224, 224, 224, .25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 5%;
+  .add, .edit, .delete, .close, .save {
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+  }
+  .add {
+    background-color: limegreen;
+  }
+  .edit {
+    background-color: #006eca;
+  }
+  .delete {
+    background-color: red;
+  }
+  .close {
+    background-color: transparent;
+  }
+  .save {
+    height: 35px;
+    background-color: limegreen;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .modalWindowBody, .modalEvent, .modalWindowSearch, .ModalMessage {
+    background-color: #eef3ea;
+    border-radius: 5px;
+    border: 2px solid gray;
+    width: 80%;
+    max-width: 500px;
+    min-height: 200px;
+    overflow-y: scroll;
+    margin: 0 auto;
+    padding: 5px;
+    z-index: 10000;
+    p, div {
+      padding: 5px;
+    }
+  }
+  .ModalMessage {
+    text-align: center;
+    .message {
+      margin-bottom: 5%;
+      padding: 5%;
+      p {
+        padding-top: 5px;
+      }
+    }
+  }
+  .modalWindowBody {
+    div.date {
+      margin-top: 10px;
+    }
+  }
+}
+.plansContainer {
+  div {
+    cursor: pointer;
+    background-color: white;
+    margin-bottom: 6px;
+    border-radius: 5px;
+  }
+}
+
